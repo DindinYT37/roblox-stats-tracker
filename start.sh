@@ -1,0 +1,1 @@
+screen -S tracker node main.js
