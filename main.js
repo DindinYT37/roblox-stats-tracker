@@ -22,6 +22,7 @@ const APIs = {
 // Ensure directories exist
 async function ensureDirectories() {
   await fs.mkdir(config.savesDir, { recursive: true });
+  await fs.mkdir(config.logDir, { recursive: true });
 }
 
 // Function to get the current date in YYYY-MM-DD format
@@ -39,7 +40,8 @@ async function initializeLogFile() {
     const oldLogName = `${stats.birthtime.toISOString().replace(/:/g, "-")}.log`;
     await fs.rename(logFilePath, path.join(config.logDir, oldLogName));
   } catch (error) {
-    // If latest.log doesn"t exist, we"ll create a new one
+    // If latest.log doesn"t exist, we'll create a new one
+    if (error.code !== "ENOENT") throw error;
   }
 
   // Create a new empty log file
