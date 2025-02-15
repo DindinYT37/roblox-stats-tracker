@@ -32,12 +32,10 @@ A Node.js application that automatically tracks and logs various statistics for 
 2. Install dependencies:
    `npm install`
 
-3. Copy config.example.js to config.js and configure your settings:
-   `cp config.example.js config.js`
-   Then edit config.js with your settings:
-   - Set your ROBLOX universe ID
-   - Set your group ID
-   - Adjust the save interval if needed
+3. Configure your settings in config.js:
+   - Set your ROBLOX universe ID (currently set to 1931573465)
+   - Set your group ID (currently set to 2880815)
+   - Adjust the save interval if needed (default is 5 minutes)
 
 ### Finding your ROBLOX universe ID and group ID
 
@@ -49,15 +47,24 @@ A Node.js application that automatically tracks and logs various statistics for 
    - Go to your group's page
    - The group ID is in the URL: `https://www.roblox.com/groups/[groupId]/...`
 
-3. Update your configuration in `config.js`
+3. Update these values in `config.js`
 
 ## Usage
 
 Start the tracker:
 `npm start`
 
-Or use the provided shell script for running in a screen session:
-`./start.sh`
+Using Screen (recommended for servers):
+1. Install screen if not already installed:
+   - Ubuntu/Debian: `sudo apt-get install screen`
+   - CentOS/RHEL: `sudo yum install screen`
+
+2. Start the tracker in a screen session:
+   `./start.sh`
+
+3. Detach from the screen session: Press `Ctrl+A` then `D`
+4. Reattach to the session later: `screen -r tracker`
+5. List all screen sessions: `screen -ls`
 
 ## Data Format
 
