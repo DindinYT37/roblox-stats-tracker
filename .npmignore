@@ -1,0 +1,6 @@
+saves/
+logs/
+.git/
+.gitignore
+.npmignore
+CONTRIBUTING.md 
